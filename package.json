@@ -8,7 +8,8 @@
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
     "playground": "graphql playground",
     "build": "rimraf dist && tsc",
-    "release": "standard-version"
+    "release": "standard-version",
+    "github-release": "conventional-github-releaser -p angular"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
