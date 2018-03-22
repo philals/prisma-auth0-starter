@@ -16,7 +16,9 @@ This documentation uses [yarn](https://yarnpkg.com) for all dependency managemen
 
 ## Documentation
 
-This repository follows the [Conventional Commits Specification](https://conventionalcommits.org/).
+This repository follows the [Conventional Commits Specification](https://conventionalcommits.org/). You can use `yarn release` followed by `git push --follow-tags origin master` when you want to cut a release. See the [`standard-version` documentation](https://github.com/conventional-changelog/standard-version) for more information.
+
+If you want to be able to generate GitHub Releases based on commits you need to follow the instructions [here](https://github.com/conventional-changelog/releaser-tools/tree/master/packages/conventional-github-releaser) and use `yarn github-release` every time you want to release a version.
 
 ### Commands
 
