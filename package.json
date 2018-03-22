@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "format": "pretty-quick --staged",
+    "lint": "tslint src/**/*.ts",
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts",
     "dev": "npm-run-all --parallel start playground",
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
@@ -10,6 +12,11 @@
     "build": "rimraf dist && tsc",
     "release": "standard-version",
     "github-release": "conventional-github-releaser -p angular"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-s format lint test"
+    }
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
@@ -21,12 +28,18 @@
     "@types/bcryptjs": "2.4.1",
     "dotenv-cli": "1.4.0",
     "graphql-cli": "2.15.8",
+    "husky": "0.14.3",
     "nodemon": "1.17.2",
     "npm-run-all": "4.1.2",
+    "prettier": "1.11.1",
+    "pretty-quick": "1.4.1",
     "prisma": "1.4.1",
     "rimraf": "2.6.2",
     "standard-version": "4.3.0",
     "ts-node": "4.1.0",
+    "tslint": "5.9.1",
+    "tslint-config-prettier": "1.10.0",
+    "tslint-eslint-rules": "5.1.0",
     "typescript": "2.7.2"
   }
 }

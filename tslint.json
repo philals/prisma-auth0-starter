@@ -1,0 +1,13 @@
+{
+  "extends": ["tslint:latest", "tslint-eslint-rules", "tslint-config-prettier"],
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev"],
+    "no-console": false
+  },
+  "linterOptions": {
+    "exclude": ["src/generated/prisma.ts"]
+  }
+}
