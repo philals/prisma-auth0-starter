@@ -20,6 +20,8 @@ This repository follows the [Conventional Commits Specification](https://convent
 
 If you want to be able to generate GitHub Releases based on commits you need to follow the instructions [here](https://github.com/conventional-changelog/releaser-tools/tree/master/packages/conventional-github-releaser) and use `yarn github-release` every time you want to release a version.
 
+This project also uses [husky](https://github.com/typicode/husky) to [format](https://prettier.io/docs/en/precommit.html#option-2-pretty-quick-https-githubcom-azz-pretty-quick) and [lint](https://github.com/alexjoverm/tslint-config-prettier) your staged files before commits. The previous links point to opinionated methods of doing so.
+
 ### Commands
 
 * `yarn start` starts GraphQL server on `http://localhost:4000`
