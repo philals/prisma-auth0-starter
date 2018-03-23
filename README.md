@@ -14,6 +14,25 @@ This documentation uses [yarn](https://yarnpkg.com) for all dependency managemen
 - **Extensible**: Simple and flexible [data model](./database/datamodel.graphql) – easy to adjust and extend
 - **No configuration overhead**: Preconfigured [`graphql-config`](https://github.com/prisma/graphql-config) setup
 
+## Getting Started
+
+Ideally you would end up with this repository somewhere locally. The first thing you would probably want to do is make the app your own:
+- In `package.json`, change `prisma-auth0-starter` to your service name.
+- Copy `example.env` to `.env` and change the values of `PRISMA_SERVICE`, `PRISMA_STAGE`, and `PRISMA_CLUSTER` to your own, and of course `PRISMA_ENDPOINT` accordingly.
+- You can use [Online UUID Generator](https://www.uuidgenerator.net/) to generate secrets for `PRISMA_SECRET` and `APP_SECRET`.
+
+### Versioning
+
+You should also consider resetting your service `version` in `package.json` to `1.0.0` and delete `CHANGELOG.md` (I'll show you how to regenerate one for your repository in a couple of sentences).
+
+Assuming you had downloaded this repository instead of forking it, you should now run `yarn install` followed by:
+- `git init` to initialize your git repository
+- `git add --all` to stage all your files
+- Something like `git commit -a -m "feat: initialize repository with conventional commits"` to do your initial commit
+- If you want to push this to a new GitHub repository you can run `git remote add origin` followed by your repository URL and finally `git push -u origin master`
+
+To cut your first release, run `yarn release -- --first-release` (this will also regenerate the `CHANGELOG.md` file for you) followed by `git push --follow-tags origin master` and optionally `yarn github-release` (read the first couple of paragraphs of the [Documentation](#Documentation) section below for more info).
+
 ## Documentation
 
 This repository follows the [Conventional Commits Specification](https://conventionalcommits.org/). You can use `yarn release` followed by `git push --follow-tags origin master` when you want to cut a release. See the [`standard-version` documentation](https://github.com/conventional-changelog/standard-version) for more information.
