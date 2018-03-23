@@ -8,7 +8,7 @@ This documentation uses [yarn](https://yarnpkg.com) for all dependency managemen
 
 - **Scalable GraphQL server:** The server uses [`graphql-yoga`](https://github.com/prisma/graphql-yoga) which is based on Apollo Server & Express
 - **Static type generation**: TypeScript types for GraphQL queries & mutations are generated in a build step
-- **Authentication**: Signup and login workflows are ready to use for your users
+- **Authentication**: Signup and login workflows are based on Auth0 and are ready to use for your users
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground) & [query performance tracing](https://github.com/apollographql/apollo-tracing)
 - **Extensible**: Simple and flexible [data model](./database/datamodel.graphql) – easy to adjust and extend
@@ -20,6 +20,12 @@ Ideally you would end up with this repository somewhere locally. The first thing
 - In `package.json`, change `prisma-auth0-starter` to your service name.
 - Copy `example.env` to `.env` and change the values of `PRISMA_SERVICE`, `PRISMA_STAGE`, and `PRISMA_CLUSTER` to your own, and of course `PRISMA_ENDPOINT` accordingly.
 - You can use [Online UUID Generator](https://www.uuidgenerator.net/) to generate secrets for `PRISMA_SECRET` and `APP_SECRET`.
+
+### Setting up Auth0
+
+In the `.env` file you copied above, you should also set `AUTH0_DOMAIN` to [your Auth0 domain](https://auth0.com/docs/getting-started/the-basics#domain). Ideally, this would initially point to your [development environment tenant](https://auth0.com/docs/dev-lifecycle/setting-up-env).
+
+One more thing you must set is `AUTH0_AUDIENCE` which can be found [here](https://manage.auth0.com/#/apis). Note that this should normally be the API you're trying to protect (this GraphQL server!) and not your Auth0 Management API. Read [this](https://auth0.com/docs/quickstart/backend/nodejs/01-authorization) for more information.
 
 ### Versioning
 
@@ -40,6 +46,10 @@ This repository follows the [Conventional Commits Specification](https://convent
 If you want to be able to generate GitHub Releases based on commits you need to follow the instructions [here](https://github.com/conventional-changelog/releaser-tools/tree/master/packages/conventional-github-releaser) and use `yarn github-release` every time you want to release a version.
 
 This project also uses [husky](https://github.com/typicode/husky) to [format](https://prettier.io/docs/en/precommit.html#option-2-pretty-quick-https-githubcom-azz-pretty-quick) and [lint](https://github.com/alexjoverm/tslint-config-prettier) your staged files before commits. The previous links point to opinionated methods of doing so.
+
+### Auth0 Integration
+
+In "[Auth0 terms](https://auth0.com/docs/apis)", this repository contains your Resource Server, the API you're trying to protect. Read [this](https://auth0.com/docs/quickstart/backend/nodejs/02-using) to see how you would normally call this API from your client application.
 
 ### Commands
 
