@@ -10,7 +10,7 @@ export const checkJwt = jwt({
   }),
   requestProperty: 'token',
   credentialsRequired: false,
-  audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`,
+  audience: process.env.AUTH0_AUDIENCE,
   issuer: `https://${process.env.AUTH0_DOMAIN}/`,
   algorithms: ['RS256']
 });
