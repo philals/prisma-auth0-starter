@@ -1,34 +1,65 @@
-import * as bcrypt from 'bcryptjs'
-import * as jwt from 'jsonwebtoken'
-import { Context } from '../../utils'
+import { Context } from '../../context';
+import * as jwksClient from 'jwks-rsa';
+import * as jwt from 'jsonwebtoken';
+
+const jwks = jwksClient({
+  cache: true,
+  rateLimit: true,
+  jwksRequestsPerMinute: 1,
+  jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+});
+
+const parseIdToken = idToken =>
+  new Promise((resolve, reject) => {
+    const { header, payload } = jwt.decode(idToken, { complete: true });
+    if (!header || !header.kid || !payload) {
+      reject(new Error('Invalid token.'));
+    }
+    jwks.getSigningKey(header.kid, (fetchError, key) => {
+      if (fetchError) {
+        reject(new Error('Error getting signing key: ' + fetchError.message));
+      }
+      return jwt.verify(
+        idToken,
+        key.publicKey,
+        { algorithms: ['RS256'] },
+        (verificationError, decoded) => {
+          if (verificationError) {
+            reject('Verification error: ' + verificationError.message);
+          }
+          resolve(decoded);
+        }
+      );
+    });
+  });
 
 export const auth = {
-  async signup(parent, args, ctx: Context, info) {
-    const password = await bcrypt.hash(args.password, 10)
-    const user = await ctx.db.mutation.createUser({
-      data: { ...args, password },
-    })
 
-    return {
-      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
-      user,
+  async signUp(parent, { idToken }, ctx: Context, info) {
+    let token = null;
+    try {
+      token = await parseIdToken(idToken);
+    } catch (err) {
+      console.error(err);
+      throw new Error(err.message);
     }
+    const auth0Id = token.sub.split('|')[1];
+    const user = await ctx.db.query.user({ where: { auth0Id } }, info);
+    if (user) {
+      return user;
+    }
+    return ctx.db.mutation.createUser({
+      data: {
+        email: token.email,
+        auth0Id: token.sub.split(`|`)[1],
+        identity: token.sub.split(`|`)[0],
+        name: token.name,
+        avatar: token.picture
+      }
+    });
   },
 
-  async login(parent, { email, password }, ctx: Context, info) {
-    const user = await ctx.db.query.user({ where: { email } })
-    if (!user) {
-      throw new Error(`No such user found for email: ${email}`)
-    }
-
-    const valid = await bcrypt.compare(password, user.password)
-    if (!valid) {
-      throw new Error('Invalid password')
-    }
-
-    return {
-      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
-      user,
-    }
-  },
-}
+  async deleteMe(parent, args, ctx: Context, info) {
+    return ctx.db.mutation.deleteUser({ where: { id: ctx.request.user.id } }, info);
+  }
+};

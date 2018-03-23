@@ -48,12 +48,25 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.1.0.tgz#93b1be91f63c184450385272c47b6496fd028e02"
 
+"@types/express-jwt@0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/express-jwt/-/express-jwt-0.0.34.tgz#fdbee4c6af5c0a246ef2a933f5519973c7717f02"
+  dependencies:
+    "@types/express" "*"
+    "@types/express-unless" "*"
+
 "@types/express-serve-static-core@*":
   version "4.11.1"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.11.1.tgz#f6f7212382d59b19d696677bcaa48a37280f5d45"
   dependencies:
     "@types/events" "*"
     "@types/node" "*"
+
+"@types/express-unless@*":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/express-unless/-/express-unless-0.0.32.tgz#783f3cc1fa5e67cc2ed30000f3e1f22501f75d50"
+  dependencies:
+    "@types/express" "*"
 
 "@types/express@*", "@types/express@^4.0.39":
   version "4.11.0"
@@ -417,7 +430,7 @@ async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
 
-async@^1.4.0, async@^1.5.2:
+async@^1.4.0, async@^1.5.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
@@ -521,10 +534,6 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
   dependencies:
     tweetnacl "^0.14.3"
-
-bcryptjs@2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
 
 binary-extensions@^1.0.0:
   version "1.11.0"
@@ -1729,6 +1738,15 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+express-jwt@5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/express-jwt/-/express-jwt-5.3.1.tgz#66f05c7dddb5409c037346a98b88965bb10ea4ae"
+  dependencies:
+    async "^1.5.0"
+    express-unless "^0.3.0"
+    jsonwebtoken "^8.1.0"
+    lodash.set "^4.0.0"
+
 express-request-proxy@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/express-request-proxy/-/express-request-proxy-2.0.0.tgz#01919aec61e89a0f824fa5e6e733b8e063c9d64d"
@@ -1745,6 +1763,10 @@ express-request-proxy@^2.0.0:
     through2 "^2.0.0"
     type-is "^1.6.6"
     url-join "0.0.1"
+
+express-unless@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/express-unless/-/express-unless-0.3.1.tgz#2557c146e75beb903e2d247f9b5ba01452696e20"
 
 express@^4.16.2:
   version "4.16.2"
@@ -2758,7 +2780,7 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-husky@^0.14.3:
+husky@0.14.3:
   version "0.14.3"
   resolved "https://registry.yarnpkg.com/husky/-/husky-0.14.3.tgz#c69ed74e2d2779769a17ba8399b54ce0b63c12c3"
   dependencies:
@@ -3314,6 +3336,17 @@ jwa@^1.1.4:
     ecdsa-sig-formatter "1.0.9"
     safe-buffer "^5.0.1"
 
+jwks-rsa@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/jwks-rsa/-/jwks-rsa-1.2.1.tgz#9949100f5643821107787de2947d46f875f6ab5a"
+  dependencies:
+    "@types/express-jwt" "0.0.34"
+    debug "^2.2.0"
+    limiter "^1.1.0"
+    lru-memoizer "^1.6.0"
+    ms "^2.0.0"
+    request "^2.73.0"
+
 jws@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/jws/-/jws-3.1.4.tgz#f9e8b9338e8a847277d6444b1464f61880e050a2"
@@ -3380,6 +3413,10 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+limiter@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/limiter/-/limiter-1.1.2.tgz#229d8055891c8b11af9e0ee5200e8e09bb3dcbeb"
+
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -3414,6 +3451,10 @@ locate-path@^2.0.0:
   dependencies:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
+
+lock@~0.1.2:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/lock/-/lock-0.1.4.tgz#fec7deaef17e7c3a0a55e1da042803e25d91745d"
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -3519,6 +3560,10 @@ lodash.result@^4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.result/-/lodash.result-4.5.2.tgz#cb45b27fb914eaa8d8ee6f0ce7b2870b87cb70aa"
 
+lodash.set@^4.0.0:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+
 lodash.startswith@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/lodash.startswith/-/lodash.startswith-4.2.1.tgz#c598c4adce188a27e53145731cdc6c0e7177600c"
@@ -3583,6 +3628,22 @@ lru-cache@^4.0.0, lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
+
+lru-cache@~4.0.0:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.0.2.tgz#1d17679c069cda5d040991a09dbc2c0db377e55e"
+  dependencies:
+    pseudomap "^1.0.1"
+    yallist "^2.0.0"
+
+lru-memoizer@^1.6.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/lru-memoizer/-/lru-memoizer-1.12.0.tgz#efe65706cc8a9cc653f80f0d5a6ea38ad950e352"
+  dependencies:
+    lock "~0.1.2"
+    lodash "^4.17.4"
+    lru-cache "~4.0.0"
+    very-fast-args "^1.1.0"
 
 lsmod@1.0.0:
   version "1.0.0"
@@ -3804,7 +3865,7 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-ms@^2.1.1:
+ms@^2.0.0, ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
@@ -4349,11 +4410,11 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.11.1:
+prettier@1.11.1:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
 
-pretty-quick@^1.4.1:
+pretty-quick@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/pretty-quick/-/pretty-quick-1.4.1.tgz#9d41f778d2d4d940ec603d1293a0998e84c4722c"
   dependencies:
@@ -4569,7 +4630,7 @@ ps-tree@^1.1.0:
   dependencies:
     event-stream "~3.3.0"
 
-pseudomap@^1.0.2:
+pseudomap@^1.0.1, pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
@@ -4849,6 +4910,33 @@ request@2.81.0:
 request@^2.53.0, request@^2.75.0, request@^2.83.0:
   version "2.83.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.6.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.1"
+    forever-agent "~0.6.1"
+    form-data "~2.3.1"
+    har-validator "~5.0.3"
+    hawk "~6.0.2"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.17"
+    oauth-sign "~0.8.2"
+    performance-now "^2.1.0"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
+    stringstream "~0.0.5"
+    tough-cookie "~2.3.3"
+    tunnel-agent "^0.6.0"
+    uuid "^3.1.0"
+
+request@^2.73.0:
+  version "2.85.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.85.0.tgz#5a03615a47c61420b3eb99b7dba204f83603e1fa"
   dependencies:
     aws-sign2 "~0.7.0"
     aws4 "^1.6.0"
@@ -5601,11 +5689,11 @@ tslib@1.9.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
 
-tslint-config-prettier@^1.10.0:
+tslint-config-prettier@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.10.0.tgz#5063c413d43de4f6988c73727f65ecfc239054ec"
 
-tslint-eslint-rules@^5.1.0:
+tslint-eslint-rules@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-5.1.0.tgz#3232b318da55dbb5a83e3f5d657c1ddbb27b9ff2"
   dependencies:
@@ -5613,7 +5701,7 @@ tslint-eslint-rules@^5.1.0:
     tslib "1.9.0"
     tsutils "2.8.0"
 
-tslint@^5.9.1:
+tslint@5.9.1:
   version "5.9.1"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.9.1.tgz#1255f87a3ff57eb0b0e1f0e610a8b4748046c9ae"
   dependencies:
@@ -5861,6 +5949,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+very-fast-args@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/very-fast-args/-/very-fast-args-1.1.0.tgz#e16d1d1faf8a6e596a246421fd90a77963d0b396"
+
 wcwidth@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
@@ -5957,7 +6049,7 @@ y18n@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
 
-yallist@^2.1.2:
+yallist@^2.0.0, yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 

@@ -9,10 +9,8 @@ stage: ${env:PRISMA_STAGE}
 secret: ${env:PRISMA_SECRET}
 
 # the file path pointing to your data model
-datamodel: datamodel.graphql
-
-# seed your service with initial data based on seed.graphql
-seed:
-  import: seed.graphql
+datamodel:
+  - types.graphql
+  - enums.graphql
 
 cluster: ${env:PRISMA_CLUSTER}
