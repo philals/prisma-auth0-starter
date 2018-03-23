@@ -51,6 +51,7 @@ export const auth = {
     return ctx.db.mutation.createUser({
       data: {
         email: token.email,
+        emailVerified: token.email_verified,
         auth0Id: token.sub.split(`|`)[1],
         identity: token.sub.split(`|`)[0],
         name: token.name,
