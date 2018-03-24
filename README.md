@@ -18,7 +18,7 @@ This documentation uses [yarn](https://yarnpkg.com) for all dependency managemen
 
 Ideally you would end up with this repository somewhere locally. The first thing you would probably want to do is make the app your own:
 - In `package.json`, change `prisma-auth0-starter` to your service name.
-- Copy `example.env` to `.env` and change the values of `PRISMA_SERVICE`, `PRISMA_STAGE`, and `PRISMA_CLUSTER` to your own, and of course `PRISMA_ENDPOINT` accordingly.
+- Copy `.env.example` to `.env` and change the values of `PRISMA_SERVICE`, `PRISMA_STAGE`, and `PRISMA_CLUSTER` to your own, and of course `PRISMA_ENDPOINT` accordingly.
 - You can use [Online UUID Generator](https://www.uuidgenerator.net/) to generate secrets for `PRISMA_SECRET` and `APP_SECRET`.
 
 ### Setting up Auth0
