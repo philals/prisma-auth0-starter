@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/coformatique/prisma-auth0-starter/compare/v1.1.0...v1.2.0) (2018-03-24)
+
+
+### Bug Fixes
+
+* **auth:** add Auth0 Audience ([464b505](https://github.com/coformatique/prisma-auth0-starter/commit/464b505))
+* **auth:** take account of email verification status ([7cc4110](https://github.com/coformatique/prisma-auth0-starter/commit/7cc4110))
+
+
+### Features
+
+* **auth:** introduce user auth resolvers using Auth0 ([967190e](https://github.com/coformatique/prisma-auth0-starter/commit/967190e))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/coformatique/prisma-auth0-starter/compare/v1.0.0...v1.1.0) (2018-03-23)
 
