@@ -1,4 +1,6 @@
-directive @isAuthenticated on FIELD_DEFINITION
+# import User from "./generated/prisma.graphql"
+
+directive @isAuthenticated(checkIfEmailIsVerified: Boolean = true) on FIELD_DEFINITION
 
 directive @hasRole(roles: [String]) on FIELD_DEFINITION
 
@@ -7,19 +9,11 @@ directive @isOwner(type: String) on FIELD_DEFINITION
 directive @isOwnerOrHasRole(type: String, roles: [String]) on FIELD_DEFINITION
 
 type Query {
-  me: UserProfile @isAuthenticated
+  me: User @isAuthenticated(checkIfEmailIsVerified: false)
 }
 
 type Mutation {
-  signUp(idToken: String!): UserProfile
-  deleteMe: UserProfile @isAuthenticated
-}
-
-type UserProfile {
-  id: ID!
-  email: String
-  emailVerified: Boolean
-  identity: String
-  name: String
-  avatar: String
+  signUp(idToken: String!): User
+  verifyEmail(idToken: String!): User @isAuthenticated(checkIfEmailIsVerified: false)
+  deleteMe: User @isAuthenticated
 }

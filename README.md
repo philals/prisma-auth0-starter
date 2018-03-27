@@ -8,10 +8,10 @@ This documentation uses [yarn](https://yarnpkg.com) for all dependency managemen
 
 - **Scalable GraphQL server:** The server uses [`graphql-yoga`](https://github.com/prisma/graphql-yoga) which is based on Apollo Server & Express
 - **Static type generation**: TypeScript types for GraphQL queries & mutations are generated in a build step
-- **Authentication**: Signup and login workflows are based on Auth0 and are ready to use for your users
+- **Authentication**: Sign up and login are based on Auth0; see [Auth0 Integration](#auth0-integration) below
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground) & [query performance tracing](https://github.com/apollographql/apollo-tracing)
-- **Extensible**: Simple and flexible [data model](./database/datamodel.graphql) – easy to adjust and extend
+- **Extensible**: Simple and flexible [data model](./database/types.graphql) – easy to adjust and extend
 - **No configuration overhead**: Preconfigured [`graphql-config`](https://github.com/prisma/graphql-config) setup
 
 ## Getting Started
@@ -37,7 +37,7 @@ Assuming you had downloaded this repository instead of forking it, you should no
 - Something like `git commit -a -m "feat: initialize repository with conventional commits"` to do your initial commit
 - If you want to push this to a new GitHub repository you can run `git remote add origin` followed by your repository URL and finally `git push -u origin master`
 
-To cut your first release, run `yarn release -- --first-release` (this will also regenerate the `CHANGELOG.md` file for you) followed by `git push --follow-tags origin master` and optionally `yarn github-release` (read the first couple of paragraphs of the [Documentation](#Documentation) section below for more info).
+To cut your first release, run `yarn release -- --first-release` (this will also regenerate the `CHANGELOG.md` file for you) followed by `git push --follow-tags origin master` and optionally `yarn github-release` (read the first couple of paragraphs of the [Documentation](#documentation) section below for more info).
 
 ## Documentation
 
@@ -50,6 +50,36 @@ This project also uses [husky](https://github.com/typicode/husky) to [format](ht
 ### Auth0 Integration
 
 In "[Auth0 terms](https://auth0.com/docs/apis)", this repository contains your Resource Server, the API you're trying to protect. Read [this](https://auth0.com/docs/quickstart/backend/nodejs/02-using) to see how you would normally call this API from your client application.
+
+**Sign Up**
+
+Typically, your client application (say for example an Angular or a React SPA) would check if a valid access token is  [stored locally](https://auth0.com/docs/security/store-tokens) and, if not, call Auth0's `/authorize` endpoint (most probably through [`Auth0.js`](https://auth0.com/docs/libraries/auth0js/v9)) to sign your user up. Note that this would be valid for both username/password and social (Facebook, Google, etc.) authentication. After Auth0 returns control to your client application through a callback you would have previously set (see `redirectUri` [here](https://auth0.com/docs/libraries/auth0js/v9#available-parameters)), you should call the `signUp` mutation, passing the ID Token that Auth0 had returned.
+
+> **Note**: You should use `id_token` and not `access_token`; both are returned by Auth0.
+
+The `signUp` mutation resolver will parse the provided ID Token using [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken) and verify its signature using your [Auth0 account's JWKS endpoint](https://auth0.com/docs/jwks). If all is well, a `User` object will be created and returned.
+
+**Login**
+ 
+If a valid access token was indeed found and passed expiry check, you may call the `me` query directly. Using the [`access_token`](https://auth0.com/docs/tokens/access-token) (not the ID Token!) previously stored, calling the `me` query should return the same `User` object created above.
+
+> **Note**: The access token passed is always verified using the [`checkJwt`](./src/middleware/checkJwt.ts) function, and attached to the current express `Request` using the [`getUser`](./src/middleware/getUser.ts) function.
+
+**Email Verification**
+
+If your user signs up using an [Auth0 Database Connection](https://auth0.com/docs/connections/database), you're probably going to want to verify their email before giving them full access to your API. Auth0 triggers a [verification email](https://auth0.com/docs/email/custom#verification-email) for such sign up actions and allows you to set a URL to [**Redirect To**](https://manage.auth0.com/#/emails) after the user clicks the provided email verification link. Ideally you would redirect to your client application and call [`checkSession`](https://auth0.com/docs/libraries/auth0js/v8#using-checksession-to-acquire-new-tokens) to acquire a new ID Token, which you would then use to call the `verifyEmail` mutation of this server.
+
+> **Note**: Make sure the **Redirect To** URL that you set above exists in the **Allowed Web Origins** of your [Auth0 Client](https://manage.auth0.com/#/clients), otherwise `checkSession` may throw an error.
+
+By default, if you use any [directive resolver](./src/directive-resolvers.ts) in your [schema](./src/schema.graphql) queries or mutations, the requesting user object's `emailVerified` field will be checked and the request will return with an `Email not verified.` error if the user has not verified their email. You can override this (only with the `@isAuthenticated` directive) as follows:
+
+```graphql schema
+type Query {
+  me: User @isAuthenticated(checkIfEmailIsVerified: false)
+}
+```
+
+In the above query, it makes sense that the user can still retrieve their info even if they have not yet verified their email.
 
 ### Commands
 

@@ -43,7 +43,7 @@ export const auth = {
       console.error(err);
       throw new Error(err.message);
     }
-    const auth0Id = token.sub.split('|')[1];
+    const auth0Id = token.sub;
     const user = await ctx.db.query.user({ where: { auth0Id } }, info);
     if (user) {
       return user;
@@ -52,12 +52,28 @@ export const auth = {
       data: {
         email: token.email,
         emailVerified: token.email_verified,
-        auth0Id: token.sub.split(`|`)[1],
-        identity: token.sub.split(`|`)[0],
+        auth0Id: token.sub,
         name: token.name,
         avatar: token.picture
       }
     });
+  },
+
+  async verifyEmail(parent, { idToken }, ctx: Context, info) {
+    let token = null;
+    try {
+      token = await parseIdToken(idToken);
+    } catch (err) {
+      console.error(err);
+      throw new Error(err.message);
+    }
+    if (ctx.request.user.auth0Id !== token.sub) {
+      console.error(`Request user identity (${ctx.request.user.auth0Id}) does not match ID Token sub (${token.sub})`);
+      throw new Error('Error matching user identity.');
+    }
+    return ctx.db.mutation.updateUser({
+      data: { emailVerified: token.email_verified },
+      where: { auth0Id: token.sub } }, info);
   },
 
   async deleteMe(parent, args, ctx: Context, info) {

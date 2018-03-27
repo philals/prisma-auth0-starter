@@ -7,7 +7,6 @@ type User implements Node {
   email: String
   emailVerified: Boolean
   auth0Id: String
-  identity: String
   role: Role
   name: String
   avatar: String
@@ -92,7 +91,6 @@ input UserCreateInput {
   email: String
   emailVerified: Boolean
   auth0Id: String
-  identity: String
   role: Role
   name: String
   avatar: String
@@ -121,8 +119,6 @@ enum UserOrderByInput {
   emailVerified_DESC
   auth0Id_ASC
   auth0Id_DESC
-  identity_ASC
-  identity_DESC
   role_ASC
   role_DESC
   name_ASC
@@ -140,7 +136,6 @@ type UserPreviousValues {
   email: String
   emailVerified: Boolean
   auth0Id: String
-  identity: String
   role: Role
   name: String
   avatar: String
@@ -185,7 +180,6 @@ input UserUpdateInput {
   email: String
   emailVerified: Boolean
   auth0Id: String
-  identity: String
   role: Role
   name: String
   avatar: String
@@ -364,59 +358,6 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   auth0Id_not_ends_with: String
-  identity: String
-  """
-  All values that are not equal to given value.
-  """
-  identity_not: String
-  """
-  All values that are contained in given list.
-  """
-  identity_in: [String!]
-  """
-  All values that are not contained in given list.
-  """
-  identity_not_in: [String!]
-  """
-  All values less than the given value.
-  """
-  identity_lt: String
-  """
-  All values less than or equal the given value.
-  """
-  identity_lte: String
-  """
-  All values greater than the given value.
-  """
-  identity_gt: String
-  """
-  All values greater than or equal the given value.
-  """
-  identity_gte: String
-  """
-  All values containing the given string.
-  """
-  identity_contains: String
-  """
-  All values not containing the given string.
-  """
-  identity_not_contains: String
-  """
-  All values starting with the given string.
-  """
-  identity_starts_with: String
-  """
-  All values not starting with the given string.
-  """
-  identity_not_starts_with: String
-  """
-  All values ending with the given string.
-  """
-  identity_ends_with: String
-  """
-  All values not ending with the given string.
-  """
-  identity_not_ends_with: String
   role: Role
   """
   All values that are not equal to given value.
@@ -579,8 +520,6 @@ export type UserOrderByInput =
   'emailVerified_DESC' |
   'auth0Id_ASC' |
   'auth0Id_DESC' |
-  'identity_ASC' |
-  'identity_DESC' |
   'role_ASC' |
   'role_DESC' |
   'name_ASC' |
@@ -610,7 +549,6 @@ export interface UserCreateInput {
   email?: String
   emailVerified?: Boolean
   auth0Id?: String
-  identity?: String
   role?: Role
   name?: String
   avatar?: String
@@ -620,7 +558,6 @@ export interface UserUpdateInput {
   email?: String
   emailVerified?: Boolean
   auth0Id?: String
-  identity?: String
   role?: Role
   name?: String
   avatar?: String
@@ -683,20 +620,6 @@ export interface UserWhereInput {
   auth0Id_not_starts_with?: String
   auth0Id_ends_with?: String
   auth0Id_not_ends_with?: String
-  identity?: String
-  identity_not?: String
-  identity_in?: String[] | String
-  identity_not_in?: String[] | String
-  identity_lt?: String
-  identity_lte?: String
-  identity_gt?: String
-  identity_gte?: String
-  identity_contains?: String
-  identity_not_contains?: String
-  identity_starts_with?: String
-  identity_not_starts_with?: String
-  identity_ends_with?: String
-  identity_not_ends_with?: String
   role?: Role
   role_not?: Role
   role_in?: Role[] | Role
@@ -759,7 +682,6 @@ export interface UserPreviousValues {
   email?: String
   emailVerified?: Boolean
   auth0Id?: String
-  identity?: String
   role?: Role
   name?: String
   avatar?: String
@@ -787,7 +709,6 @@ export interface User extends Node {
   email?: String
   emailVerified?: Boolean
   auth0Id?: String
-  identity?: String
   role?: Role
   name?: String
   avatar?: String

@@ -1,9 +1,12 @@
 import { Context } from './context';
 
-const isLoggedIn = (ctx: Context) => {
+const isLoggedIn = (ctx: Context, checkIfEmailIsVerified = true) => {
   const user = ctx.request.user;
   if (!user) {
     throw new Error(`Authentication error.`);
+  }
+  if (checkIfEmailIsVerified && !user.emailVerified) {
+    throw new Error(`Email not verified.`);
   }
   return user;
 };
@@ -13,8 +16,8 @@ const isRequestingUserAlsoOwner = async ({ ctx, userId, type, typeId, ownerField
 
 export const directiveResolvers = {
 
-  isAuthenticated: (next, source, args, ctx: Context) => {
-    isLoggedIn(ctx);
+  isAuthenticated: (next, source, { checkIfEmailIsVerified }, ctx: Context) => {
+    isLoggedIn(ctx, checkIfEmailIsVerified);
     return next();
   },
 

@@ -3,7 +3,7 @@ export const getUser = async (req, res, next, db) => {
     return next();
   }
   req.user = await db.query.user({
-    where: { auth0Id: req.token.sub.split(`|`)[1] }
+    where: { auth0Id: req.token.sub }
   });
   next();
 };
