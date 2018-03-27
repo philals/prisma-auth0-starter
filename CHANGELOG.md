@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.2](https://github.com/coformatique/prisma-auth0-starter/compare/v1.2.1...v1.2.2) (2018-03-27)
+
+
+### Bug Fixes
+
+* **build:** properly generate GitHub releases https://goo.gl/N3Q7vm ([766c08e](https://github.com/coformatique/prisma-auth0-starter/commit/766c08e))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/coformatique/prisma-auth0-starter/compare/v1.2.0...v1.2.1) (2018-03-27)
 
