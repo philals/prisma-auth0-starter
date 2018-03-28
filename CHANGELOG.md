@@ -2,12 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.2.2](https://github.com/coformatique/prisma-auth0-starter/compare/v1.2.1...v1.2.2) (2018-03-27)
+# [1.3.0](https://github.com/coformatique/prisma-auth0-starter/compare/v1.2.2...v1.3.0) (2018-03-28)
 
 
-### Bug Fixes
+### Features
 
-* **build:** properly generate GitHub releases https://goo.gl/N3Q7vm ([766c08e](https://github.com/coformatique/prisma-auth0-starter/commit/766c08e))
+* add jest tests ([#11](https://github.com/coformatique/prisma-auth0-starter/issues/11)) ([3dc1bad](https://github.com/coformatique/prisma-auth0-starter/commit/3dc1bad))
 
 
 
