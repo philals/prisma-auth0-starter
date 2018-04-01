@@ -5,6 +5,9 @@ const isLoggedIn = (ctx: Context, checkIfEmailIsVerified = true) => {
   if (!user) {
     throw new Error(`Authentication error.`);
   }
+  if (user === '404') {
+    throw new Error(`User not found.`);
+  }
   if (checkIfEmailIsVerified && !user.emailVerified) {
     throw new Error(`Email not verified.`);
   }
