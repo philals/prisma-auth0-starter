@@ -2,12 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-# [1.3.0](https://github.com/coformatique/prisma-auth0-starter/compare/v1.2.2...v1.3.0) (2018-03-28)
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/coformatique/prisma-auth0-starter/compare/v1.3.0...v1.3.1) (2018-04-02)
 
 
-### Features
+### Bug Fixes
 
-* add jest tests ([#11](https://github.com/coformatique/prisma-auth0-starter/issues/11)) ([3dc1bad](https://github.com/coformatique/prisma-auth0-starter/commit/3dc1bad))
+* **auth:** differentiate between nonexistent and unauthenticated user ([#13](https://github.com/coformatique/prisma-auth0-starter/issues/13)) ([ca49250](https://github.com/coformatique/prisma-auth0-starter/commit/ca49250))
+* **auth:** patching and refactoring ([#15](https://github.com/coformatique/prisma-auth0-starter/issues/15)) ([a52192b](https://github.com/coformatique/prisma-auth0-starter/commit/a52192b))
+* **deps:** update dependency graphql-yoga to v1.7.0 ([#8](https://github.com/coformatique/prisma-auth0-starter/issues/8)) ([0a659b7](https://github.com/coformatique/prisma-auth0-starter/commit/0a659b7))
+* **deps:** update dependency graphql-yoga to v1.7.1 ([#14](https://github.com/coformatique/prisma-auth0-starter/issues/14)) ([ddaab56](https://github.com/coformatique/prisma-auth0-starter/commit/ddaab56))
 
 
 
