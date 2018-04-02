@@ -3,13 +3,13 @@ import { Context } from './context';
 const isLoggedIn = (ctx: Context, checkIfEmailIsVerified = true) => {
   const user = ctx.request.user;
   if (!user) {
-    throw new Error(`Authentication error.`);
+    throw new Error(`Authentication error`);
   }
   if (user === '404') {
-    throw new Error(`User not found.`);
+    throw new Error(`User not found`);
   }
   if (checkIfEmailIsVerified && !user.emailVerified) {
-    throw new Error(`Email not verified.`);
+    throw new Error(`Email not verified`);
   }
   return user;
 };
@@ -31,8 +31,8 @@ export const directiveResolvers = {
       return next();
     }
 
-    console.error(`Role ${role} is not authorized.`);
-    throw new Error('Authorization error.');
+    console.error(`Role ${role} is not authorized`);
+    throw new Error('Authorization error');
   },
 
   isOwner: async (next, source, { type }, ctx: Context) => {
@@ -47,8 +47,8 @@ export const directiveResolvers = {
       return next();
     }
 
-    console.error(`User ${userId} is not owner of type ${typeId}.`);
-    throw new Error('Authorization error.');
+    console.error(`User ${userId} is not owner of type ${typeId}`);
+    throw new Error('Authorization error');
   },
 
   isOwnerOrHasRole: async (next, source, { roles, type }, ctx: Context) => {
@@ -65,7 +65,7 @@ export const directiveResolvers = {
     if (isOwner) {
       return next();
     }
-    console.error(`User ${userId} is not owner of type ${typeId} and role ${role} is not authorized.`);
-    throw new Error('Authorization error.');
+    console.error(`User ${userId} is not owner of type ${typeId} and role ${role} is not authorized`);
+    throw new Error('Authorization error');
   }
 };
