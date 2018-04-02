@@ -46,6 +46,10 @@ export const auth = {
     const auth0Id = token.sub;
     const user = await ctx.db.query.user({ where: { auth0Id } }, info);
     if (user) {
+      // Just in case this user is logging in just after verifying their email:
+      if (user.emailVerified !== token.email_verified) {
+        return ctx.db.mutation.updateUser({ where: { auth0Id }, data: { emailVerified: token.email_verified } }, info);
+      }
       return user;
     }
     return ctx.db.mutation.createUser({
