@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/coformatique/prisma-auth0-starter/compare/v1.3.1...v1.3.2) (2018-04-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql-yoga to v1.8.0 ([#19](https://github.com/coformatique/prisma-auth0-starter/issues/19)) ([ecbf33a](https://github.com/coformatique/prisma-auth0-starter/commit/ecbf33a))
+* **deps:** update dependency jsonwebtoken to v8.2.1 ([#18](https://github.com/coformatique/prisma-auth0-starter/issues/18)) ([b7e5b5b](https://github.com/coformatique/prisma-auth0-starter/commit/b7e5b5b))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/coformatique/prisma-auth0-starter/compare/v1.3.0...v1.3.1) (2018-04-02)
 
