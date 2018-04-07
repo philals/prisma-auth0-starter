@@ -58,7 +58,7 @@ test('should not allow a user with an unverified email to delete their account',
   try {
     await client.request(DELETE_ME_MUTATION);
   } catch(e) {
-    expect(e.response.errors[0].message).toEqual("Email not verified.")
+    expect(e.response.errors[0].message).toEqual("Email not verified")
   }
 });
 
