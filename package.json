@@ -27,7 +27,7 @@
     "prisma-binding": "1.5.16"
   },
   "devDependencies": {
-    "@types/jest": "22.2.2",
+    "@types/jest": "22.2.3",
     "@types/node-fetch": "1.6.8",
     "conventional-changelog-angular": "3.0.6",
     "dotenv": "5.0.1",
