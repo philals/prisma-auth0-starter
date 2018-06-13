@@ -94,6 +94,10 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
+"@types/graphql@0.12.6":
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.12.6.tgz#3d619198585fcabe5f4e1adfb5cf5f3388c66c13"
+
 "@types/graphql@^0.12.5":
   version "0.12.7"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.12.7.tgz#392e46d6c1bceb7d68c117233cea787dde72780c"
@@ -127,7 +131,7 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@types/zen-observable@0.5.3", "@types/zen-observable@^0.5.3":
+"@types/zen-observable@^0.5.3":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.5.3.tgz#91b728599544efbb7386d8b6633693a3c2e7ade5"
 
@@ -258,17 +262,17 @@ apollo-cache-control@^0.0.x:
   dependencies:
     graphql-extensions "^0.0.x"
 
-apollo-link-error@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.0.7.tgz#df6d7b13e9b73f9a615547b65ec9a4c930ca7f18"
+apollo-link-error@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.0.9.tgz#83bbe019a3bca7c602c399889b313a7e5e22713f"
   dependencies:
-    apollo-link "^1.2.1"
+    apollo-link "^1.2.2"
 
-apollo-link-ws@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.7.tgz#6cc3903cbfbbefe213ea9fc8121f5fed3cef1823"
+apollo-link-ws@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.8.tgz#ac1de8f29e92418728479a9a523af9f75b9ccc8b"
   dependencies:
-    apollo-link "^1.2.1"
+    apollo-link "^1.2.2"
 
 apollo-link@1.2.1, apollo-link@^1.2.1:
   version "1.2.1"
@@ -278,13 +282,13 @@ apollo-link@1.2.1, apollo-link@^1.2.1:
     apollo-utilities "^1.0.0"
     zen-observable-ts "^0.8.6"
 
-apollo-link@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.1.0.tgz#9d573b16387ee0d8e147b1f319e42c8c562f18f7"
+apollo-link@1.2.2, apollo-link@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.2.tgz#54c84199b18ac1af8d63553a68ca389c05217a03"
   dependencies:
-    "@types/zen-observable" "0.5.3"
+    "@types/graphql" "0.12.6"
     apollo-utilities "^1.0.0"
-    zen-observable "^0.7.0"
+    zen-observable-ts "^0.8.9"
 
 apollo-server-core@^1.3.2:
   version "1.3.2"
@@ -1510,6 +1514,13 @@ cross-fetch@2.0.0:
   dependencies:
     node-fetch "2.0.0"
     whatwg-fetch "2.0.3"
+
+cross-fetch@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-2.1.1.tgz#c41b37af8e62ca1c6ad0bd519dcd0a16c75b6f1f"
+  dependencies:
+    node-fetch "2.1.2"
+    whatwg-fetch "2.0.4"
 
 cross-spawn@^4.0.0:
   version "4.0.2"
@@ -2766,12 +2777,17 @@ graphcool-yml@0.4.15:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-graphql-binding@1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-1.2.5.tgz#1c45b9da055cb0722f0348b6354be2e11b0a8c17"
+graphql-binding@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/graphql-binding/-/graphql-binding-2.1.1.tgz#8f01f8da8a99f9c703ba96167c5925bd05ef14f2"
   dependencies:
-    graphql-tools "2.21.0"
+    graphql-import "^0.5.2"
+    graphql-tools "3.0.1"
     iterall "1.2.2"
+    object-path-immutable "^1.0.1"
+    resolve-cwd "^2.0.0"
+    ts-node "^6.0.2"
+    yargs "^11.0.0"
 
 graphql-cli-prepare@1.4.17:
   version "1.4.17"
@@ -2923,11 +2939,23 @@ graphql-import@0.4.5, graphql-import@^0.4.5:
   dependencies:
     lodash "^4.17.4"
 
+graphql-import@0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.5.2.tgz#d7e05dc07d2d66e8d8c4bd408650f9fdaeddb8f8"
+  dependencies:
+    lodash "^4.17.4"
+
 graphql-import@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.4.1.tgz#ef1c047d6250bc8c009b12b64c26924ac4f4716c"
   dependencies:
     graphql "^0.12.3"
+    lodash "^4.17.4"
+
+graphql-import@^0.5.2:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.5.3.tgz#c0487f7de16766e7e2174a85f61900de59a59227"
+  dependencies:
     lodash "^4.17.4"
 
 graphql-playground-html@1.5.5:
@@ -2991,11 +3019,11 @@ graphql-subscriptions@^0.5.8:
   dependencies:
     iterall "^1.2.1"
 
-graphql-tools@2.21.0:
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-2.21.0.tgz#c0d0fbda6f40a87c8d267a2989ade2ae8b9a288e"
+graphql-tools@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-3.0.1.tgz#456c27061fb2f1040f6bb7bf8a68459651090462"
   dependencies:
-    apollo-link "^1.1.0"
+    apollo-link "1.2.1"
     apollo-utilities "^1.0.1"
     deprecated-decorator "^0.1.6"
     iterall "^1.1.3"
@@ -5061,6 +5089,10 @@ object-keys@^1.0.8:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
 
+object-path-immutable@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/object-path-immutable/-/object-path-immutable-1.0.2.tgz#e1e37ebca42b48b429cdc30b25c7a8fb658b0067"
+
 object-path@^0.11.4:
   version "0.11.4"
   resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.4.tgz#370ae752fbf37de3ea70a861c23bba8915691949"
@@ -5427,20 +5459,20 @@ pretty-quick@1.4.1:
     ignore "^3.3.7"
     mri "^1.1.0"
 
-prisma-binding@1.5.16:
-  version "1.5.16"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-1.5.16.tgz#51c3c1fca96550ca1c45645d2615c595bc5aae79"
+prisma-binding@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.1.0.tgz#5aafe15df3d9049ccdee6d491700ed59b5063fc3"
   dependencies:
-    apollo-link "1.2.1"
-    apollo-link-error "1.0.7"
-    apollo-link-ws "1.0.7"
-    cross-fetch "2.0.0"
-    graphql-binding "1.2.5"
-    graphql-import "0.4.5"
-    graphql-tools "2.21.0"
+    apollo-link "1.2.2"
+    apollo-link-error "1.0.9"
+    apollo-link-ws "1.0.8"
+    cross-fetch "2.1.1"
+    graphql-binding "2.1.1"
+    graphql-import "0.5.2"
+    graphql-tools "3.0.1"
     http-link-dataloader "^0.1.2"
-    jsonwebtoken "^8.1.0"
-    subscriptions-transport-ws "0.9.6"
+    jsonwebtoken "8.2.1"
+    subscriptions-transport-ws "0.9.8"
 
 prisma-cli-core@1.0.31:
   version "1.0.31"
@@ -6388,6 +6420,13 @@ source-map-support@^0.5.3:
   dependencies:
     source-map "^0.6.0"
 
+source-map-support@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.6.tgz#4435cee46b1aab62b8e8610ce60f788091c51c13"
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
 source-map-url@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
@@ -6624,7 +6663,20 @@ subarg@^1.0.0:
   dependencies:
     minimist "^1.1.0"
 
-subscriptions-transport-ws@0.9.6, subscriptions-transport-ws@^0.9.6:
+subscriptions-transport-ws@0.9.8:
+  version "0.9.8"
+  resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.8.tgz#3a26ab96e06f78cf4ace8d083f6227fa55970947"
+  dependencies:
+    backo2 "^1.0.2"
+    eventemitter3 "^2.0.3"
+    iterall "^1.2.1"
+    lodash.assign "^4.2.0"
+    lodash.isobject "^3.0.2"
+    lodash.isstring "^4.0.1"
+    symbol-observable "^1.0.4"
+    ws "^3.0.0"
+
+subscriptions-transport-ws@^0.9.6:
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.6.tgz#5ff86a0746316ca3eb2423b118b8bc74a6793e1b"
   dependencies:
@@ -6878,6 +6930,18 @@ ts-node@5.0.1:
     minimist "^1.2.0"
     mkdirp "^0.5.1"
     source-map-support "^0.5.3"
+    yn "^2.0.0"
+
+ts-node@^6.0.2:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-6.1.1.tgz#19607140acb06150441fcdb61be11f73f7b6657e"
+  dependencies:
+    arrify "^1.0.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.5.6"
     yn "^2.0.0"
 
 tslib@1.9.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
@@ -7194,6 +7258,10 @@ whatwg-fetch@2.0.3, whatwg-fetch@>=0.10.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
+whatwg-fetch@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+
 whatwg-url@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-6.4.0.tgz#08fdf2b9e872783a7a1f6216260a1d66cc722e08"
@@ -7421,9 +7489,19 @@ zen-observable-ts@^0.8.6:
   dependencies:
     zen-observable "^0.7.0"
 
+zen-observable-ts@^0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.8.9.tgz#d3c97af08c0afdca37ebcadf7cc3ee96bda9bab1"
+  dependencies:
+    zen-observable "^0.8.0"
+
 zen-observable@^0.7.0:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.7.1.tgz#f84075c0ee085594d3566e1d6454207f126411b3"
+
+zen-observable@^0.8.0:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.8.tgz#1ea93995bf098754a58215a1e0a7309e5749ec42"
 
 zip-stream@^1.2.0:
   version "1.2.0"
